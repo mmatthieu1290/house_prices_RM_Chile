@@ -59,7 +59,7 @@ st.write(dormitorios + banios)
 
 X = preprocessor.transform(input_data[['Comuna', 'Dorms', 'Baths', 'Built Area', 'Total Area', 'Parking']])
 
-price = LR(X)
+price = LR.predict(X)
 
 st.write("El precio estimado de la casa es :",float(price))
 
