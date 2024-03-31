@@ -1,8 +1,6 @@
 import streamlit as st
 import pickle
 import pandas as pd
-import matplotlib.pyplot as plt
-import sqlite3
 import numpy as np
 #import SessionState
 
