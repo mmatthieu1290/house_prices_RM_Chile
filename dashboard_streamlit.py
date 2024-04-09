@@ -48,9 +48,9 @@ parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos"
 
 X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
-price = LR.predict(X),
+price = LR.predict(X)[0],
 
-st.write(mts_utiles * price)
+st.write(price)
 
 #st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
 
