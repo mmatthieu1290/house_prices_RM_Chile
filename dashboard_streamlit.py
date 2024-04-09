@@ -45,9 +45,6 @@ mts_total = float(st.sidebar.number_input("Indique el metraje total",100))
 
 parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos",1))
 
-input_data = pd.DataFrame(columns = ['Comuna', 'Dorms', 'Baths', 'Built Area', 'Total Area', 'Parking'], \
-                          data=[[choice_comuna,dormitorios,banios,mts_utiles,mts_total,parkings]])
-
 
 X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
