@@ -42,7 +42,7 @@ banios = st.sidebar.number_input("Indique el numero de baños",1)
 mts_utiles = float(st.sidebar.number_input("Indique el metraje util",min_value = 0.0, value = 100.0, step = 5.0))
 
 
-mts_total = float(st.sidebar.number_input("Indique el metraje total",100))
+mts_total = float(st.sidebar.number_input("Indique el metraje total",min_value = mts_utiles, step = 5.0))
 
 parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos",1))
 
