@@ -33,7 +33,7 @@ choice_comuna = st.sidebar.selectbox("En qué comuna esta la casa?",\
 choice_comuna = choice_comuna.replace(' ','_')
 
 with open(f'pricing_{choice_comuna}.pkl','rb') as pricing:
-    knn = pickle.load(pricing)
+    LR = pickle.load(pricing)
 
 dormitorios = st.sidebar.number_input("Indique el numero de habitaciones",1)
 
@@ -48,7 +48,7 @@ parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos"
 
 X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
-price = knn.predict(X),
+price = LR.predict(X),
 
 st.write(price)
 
