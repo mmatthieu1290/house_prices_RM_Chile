@@ -53,5 +53,7 @@ X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
 price = knn.predict(X),
 
-st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
+st.write(price)
+
+#st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
 
