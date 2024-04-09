@@ -50,7 +50,7 @@ X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
 price = LR.predict(X),
 
-st.write(price)
+st.write(mts_utiles * price)
 
 #st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
 
