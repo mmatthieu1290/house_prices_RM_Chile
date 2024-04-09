@@ -39,7 +39,7 @@ dormitorios = st.sidebar.number_input("Indique el numero de habitaciones",1)
 
 banios = st.sidebar.number_input("Indique el numero de baños",1)
 
-mts_utiles = float(st.sidebar.number_input("Indique el metraje util",min_value = 0.0, value = 100.0, step = 5))
+mts_utiles = float(st.sidebar.number_input("Indique el metraje util",min_value = 0.0, value = 100.0, step = 5.0))
 
 
 mts_total = float(st.sidebar.number_input("Indique el metraje total",100))
