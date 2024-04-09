@@ -48,7 +48,7 @@ parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos"
 
 X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
-price = LR.predict(X)[0],
+price = LR.predict(X)[0][0],
 
 st.write(price)
 
