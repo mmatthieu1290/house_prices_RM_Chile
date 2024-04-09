@@ -2,13 +2,8 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
+import sklearn
 #import SessionState
-
-with open('pricing.pkl','rb') as pricing:
-    LR = pickle.load(pricing)
-
-with open('preprocessor.pkl','rb') as pre:
-    preprocessor = pickle.load(pre)      
 
 ### Config
 st.set_page_config(
@@ -24,17 +19,21 @@ st.title('')
 #delay = pd.read_excel('get_around_delay_analysis.xlsx')
 
 choice_comuna = st.sidebar.selectbox("En qué comuna esta la casa?",\
-    ['QuintaNormal', 'PedroAguirreCerda', 'EstaciónCentral', 'Colina',
-       'LaFlorida', 'Maipú', 'SanBernardo', 'Santiago', 'LasCondes',
-       'Lampa', 'Quilicura', 'PuenteAlto', 'LaPintana', 'Huechuraba',
-       'SanMiguel', 'Ñuñoa', 'LaGranja', 'Pudahuel', 'Independencia',
-       'Buin', 'Peñalolén', 'Talagante', 'PadreHurtado', 'Tiltil',
-       'LoBarnechea', 'Providencia', 'LaReina', 'Conchalí', 'Peñaflor',
-       'ElMonte', 'Macul', 'CaleradeTango', 'Paine', 'LaCisterna',
-       'Melipilla', 'Recoleta', 'LoPrado', 'Vitacura', 'LoEspejo',
-       'ElBosque', 'Cerrillos', 'Curacaví', 'Renca', 'Pirque',
-       'SanJoaquín', 'IsladeMaipo', 'SanRamón', 'CerroNavia',
-       'SanJosédeMaipo'])
+    ['Buin', 'Calera de Tango', 'Cerrillos', 'Cerro Navia', 'Colina',
+       'Conchalí', 'El Bosque', 'Estación Central', 'Huechuraba',
+       'Independencia', 'Isla de Maipo', 'La Cisterna', 'La Florida',
+       'La Granja', 'La Pintana', 'La Reina', 'Lampa', 'Las Condes',
+       'Lo Barnechea', 'Lo Espejo', 'Lo Prado', 'Macul', 'Maipú',
+       'Melipilla', 'Ñuñoa', 'Padre Hurtado', 'Paine', 'Pedro Aguirre Cerda',
+       'Peñaflor', 'Peñalolén', 'Pirque', 'Providencia', 'Pudahuel',
+       'Puente Alto', 'Quilicura', 'Quinta Normal', 'Recoleta', 'Renca',
+       'San Bernardo', 'San Joaquín', 'San Miguel', 'Santiago',
+       'Talagante', 'Vitacura'])
+
+choice_comuna = choice_comuna.replace(' ','_')
+
+with open(f'pricing_{choice_comuna}.pkl','rb') as pricing:
+    knn = pickle.load(pricing)
 
 dormitorios = st.sidebar.number_input("Indique el numero de habitaciones",1)
 
@@ -49,17 +48,10 @@ parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos"
 input_data = pd.DataFrame(columns = ['Comuna', 'Dorms', 'Baths', 'Built Area', 'Total Area', 'Parking'], \
                           data=[[choice_comuna,dormitorios,banios,mts_utiles,mts_total,parkings]])
 
-input_data['Comuna'] = input_data['Comuna'].astype(str)
 
-input_data[[ 'Dorms', 'Baths', 'Built Area', 'Total Area', 'Parking']] = input_data[[ 'Dorms', 'Baths', 'Built Area', 'Total Area', 'Parking']].astype(float)
+X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
-st.write(input_data)
-
-st.write(dormitorios + banios)
-
-X = preprocessor.transform(input_data[['Comuna', 'Dorms', 'Baths', 'Built Area', 'Total Area', 'Parking']])
-
-price = LR.predict(X)
+price = knn.predict(X),
 
 st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
 
