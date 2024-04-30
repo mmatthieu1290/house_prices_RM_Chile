@@ -47,7 +47,7 @@ mts_total = float(st.sidebar.number_input("Indique el metraje total",min_value =
 parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos",1))
 
 
-X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
+X = np.array([[dormitorios,banios,mts_utiles,parkings]])
 
 price = mts_utiles * LR.predict(X)[0],
 
