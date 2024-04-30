@@ -48,11 +48,13 @@ parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos"
 
 X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
 
-if LR.coef_[0] < LR.coef_[1]:
+if LR.coef_[0] < 0:
   
-  LR.coef_[0] = LR.coef_[1]
-else:
-  LR.coef_[1] = LR.coef_[0]  
+  LR.coef_[0] = 0.1
+
+if LR.coef_[1] < 0:
+  
+  LR.coef_[1] = 0.1
 
 price = mts_utiles * LR.predict(X)[0],
 
