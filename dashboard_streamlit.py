@@ -53,5 +53,5 @@ price = mts_utiles * LR.predict(X)[0],
 
 #st.write(price)
 
-st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
+st.write("El precio estimado de la casa es :",round(float(price[0]),0)," UF.")
 
