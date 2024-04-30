@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 ### HEADER
-st.title('')
+st.title('Simulador de precios en la Region Metropolitana, Chile')
 
 
 
@@ -51,7 +51,7 @@ X = np.array([[dormitorios,banios,mts_utiles,parkings]])
 
 price = mts_utiles * LR.predict(X)[0],
 
-st.write(price)
+#st.write(price)
 
-#st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
+st.write("El precio estimado de la casa es :",round(float(price),0)," UF.")
 
