@@ -32,7 +32,7 @@ choice_comuna = st.sidebar.selectbox("En qué comuna esta la casa?",\
 
 choice_comuna = choice_comuna.replace(' ','_')
 
-with open(f'pricing_{choice_comuna}.pkl','rb') as pricing:
+with open(f'pricings/pricing_{choice_comuna}.pkl','rb') as pricing:
     LR = pickle.load(pricing)
 
 dormitorios = st.sidebar.number_input("Indique el numero de habitaciones",1)
