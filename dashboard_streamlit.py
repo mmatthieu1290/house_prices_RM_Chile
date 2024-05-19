@@ -44,9 +44,7 @@ mts_utiles = float(st.sidebar.number_input("Indique el metraje util",min_value =
 
 mts_total = float(st.sidebar.number_input("Indique el metraje total",min_value = mts_utiles, step = 5.0))
 
-parkings = float(st.sidebar.number_input("Indique el numero de estacionamientos",1))
-
-X = np.array([[dormitorios,banios,mts_utiles,mts_total,parkings]])
+X = np.array([[mts_utiles,mts_total,float(dormitorios)+float(banios)]])
 
 if LR.coef_[0] < 0:
   
