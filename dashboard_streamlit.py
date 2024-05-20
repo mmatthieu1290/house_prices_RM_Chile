@@ -46,13 +46,9 @@ mts_total = float(st.sidebar.number_input("Indique el metraje total",min_value =
 
 X = np.array([[mts_utiles,mts_total,float(dormitorios)+float(banios)]])
 
-if LR.coef_[0] < 0:
+if LR.coef_[2] < 0:
   
   LR.coef_[0] = 0.1
-
-if LR.coef_[1] < 0:
-  
-  LR.coef_[1] = 0.1
 
 price = mts_utiles * LR.predict(X)[0],
 
