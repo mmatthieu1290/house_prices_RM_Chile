@@ -48,7 +48,7 @@ X = np.array([[mts_utiles,mts_total,float(dormitorios)+float(banios)]])
 
 if LR.coef_[2] < 0:
   
-  LR.coef_[0] = 0.1
+  LR.coef_[2] = 0.1
 
 price = mts_utiles * LR.predict(X)[0],
 
@@ -74,5 +74,3 @@ for comuna in list_comunas:
     with open(f'pricings/pricing_{comuna}.pkl','rb') as pricing:
       LR = pickle.load(pricing)
       S += LR.coef_[2]
-
-st.write("Valeur miyenne coef : ", S/len(list_comunas))
