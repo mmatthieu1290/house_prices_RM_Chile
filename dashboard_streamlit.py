@@ -56,3 +56,22 @@ price = mts_utiles * LR.predict(X)[0],
 
 st.write("El precio estimado de la casa es :",round(float(price[0]),0)," UF.")
 
+list_comunas = ['Buin', 'Calera de Tango', 'Cerrillos', 'Cerro Navia', 'Colina',
+       'Conchalí', 'El Bosque', 'Estación Central', 'Huechuraba',
+       'Independencia', 'Isla de Maipo', 'La Cisterna', 'La Florida',
+       'La Granja', 'La Pintana', 'La Reina', 'Lampa', 'Las Condes',
+       'Lo Barnechea', 'Lo Espejo', 'Lo Prado', 'Macul', 'Maipú',
+       'Melipilla', 'Ñuñoa', 'Padre Hurtado', 'Paine', 'Pedro Aguirre Cerda',
+       'Peñaflor', 'Peñalolén', 'Pirque', 'Providencia', 'Pudahuel',
+       'Puente Alto', 'Quilicura', 'Quinta Normal', 'Recoleta', 'Renca',
+       'San Bernardo', 'San Joaquín', 'San Miguel', 'Santiago',
+       'Talagante', 'Vitacura']
+
+S = 0
+
+for comuna in list_comunas:
+    with open(f'pricings/pricing_{comuna}.pkl','rb') as pricing:
+      LR = pickle.load(pricing)
+      S += LR.coef_[2]
+
+st.write("Valeur miyenne coef : ", S/len(list_comunas))
