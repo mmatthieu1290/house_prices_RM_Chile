@@ -70,6 +70,7 @@ list_comunas = ['Buin', 'Calera de Tango', 'Cerrillos', 'Cerro Navia', 'Colina',
 S = 0
 
 for comuna in list_comunas:
+    comuna = comuna.replace(' ','_')
     with open(f'pricings/pricing_{comuna}.pkl','rb') as pricing:
       LR = pickle.load(pricing)
       S += LR.coef_[2]
