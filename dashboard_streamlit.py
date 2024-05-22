@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 ### HEADER
-st.title('Simulador de precios en la Region Metropolitana, Chile')
+st.title('Simulador de los precios de las casas en la Region Metropolitana, Chile')
 
 
 
