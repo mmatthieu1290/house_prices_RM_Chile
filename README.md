@@ -29,6 +29,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Description of the files](#Description-of-the-files)
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
